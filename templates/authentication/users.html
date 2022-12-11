@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="content-wrapper">
+  <form action="">
+      <div class="contener py-3">
+        <div class="row">
+            <table id="example" class="table table-striped " style="width:100%">
+              <thead>
+                  <tr class="bg-secondary">
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Procedure1</th>
+                    <th>Procedure2</th>
+                  </tr>
+              </thead>
+                   {% for i in us %}
+              <tbody class="table table-bordered">
+                  <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.Username}}</td>
+                    <td>{{i.Password}}</td>
+                    <td class="btn btn-danger"><a class="text-dark ml-4 mr-4" href="{% url 'removeuser' i.id %}">Delete</a></td>
+                    <td><a class="bbb" href="{% url 'updateuser' i.id %}">Update</a></td>
+                  </tr>
+              </tbody>
+                    {% endfor %}
+            </table>
+        </div>
+      </div>
+  </form>
+</div>
+
+
+{% endblock content %}

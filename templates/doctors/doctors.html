@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="content-wrapper">
+  <form action="">
+        <div class="contener py-3">
+            <div class="row">
+              <table id="example" class="table table-striped ml-2 " style="width:100%">
+                <thead>
+                  <tr class="bg-secondary">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phon</th>
+                        <th>Specialization</th>
+                        <th>Procedure1</th>
+                        <th>Procedure2</th>
+                    </tr>
+                </thead>
+                    {% for i in doc %}
+                <tbody class="table table-bordered">
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.Name}}</td>
+                        <td>{{i.Address}}</td>
+                        <td>{{i.Phon}}</td>
+                        <td>{{i.Spe_id}}</td>
+                        <td class="btn btn-danger"><a class="text-dark ml-4 mr-4" href="{% url 'removedoctor' i.id %}">Delete</a></td>
+                        <td><a class="bbb" href="{% url 'updatedoctor' i.id %}">Update</a></td>
+                    </tr>
+                </tbody>
+                    {% endfor %}
+              </table>
+            </div>
+        </div>
+  </form>
+</div>
+
+{% endblock content %}

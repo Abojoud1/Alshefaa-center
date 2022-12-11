@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="content-wrapper">
+  <form enctype="multipart/form-data" method="POST">
+      {%csrf_token%}
+      <div class="card-body">
+      {{it}}
+      </div>
+      <div class="card-footer">
+          <button type="submit" class="btn btn-primary">save</button>
+      </div>
+  </form>
+</div>
+
+{% endblock content %}

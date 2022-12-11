@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="content-wrapper">
+   <h1 class="row m-5">Lougout</h1>
+   <form  method="POST" enctype="multipart/form-data">
+       {%csrf_token%}
+       <div class="row m-3">
+         <p class="p-3">Do you really want to exit the program?</p>
+       </div>
+       <div class="card-footer m-3">
+         <button type="submit" class="btn btn-danger">Logout</button>
+         <a href="{% url 'patientss'%}" type="button" class="btn btn-primary">Undo</a>
+       </div>
+       </div>
+   </form>
+ </div>
+
+{% endblock content %}

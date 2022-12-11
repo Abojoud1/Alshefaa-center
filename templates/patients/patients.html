@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="content-wrapper">
+  <form action="">
+      <div class="contener py-3">
+          <div class="row">
+              <table id="example" class="table table-striped ml-2" style="width:100%">
+                <thead>
+                  <tr class="bg-secondary">
+                        <th>ID</th>
+                        <th>FName</th>
+                        <th>LName</th>
+                        <th>Gender</th>
+                        <th>BirthYear</th>
+                        <th>Weight</th>
+                        <th>CreditNumber</th>
+                        <th>Address</th>
+                        <th>Phon</th>
+                        <th>SocialStatus</th>
+                        <th>MedicalHistory</th>
+                        <th>Procedure1</th>
+                        <th>Procedure2</th>
+                  </tr>
+                </thead>
+                    {% for i in pat %}
+                <tbody class="table table-bordered">
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.FName}}</td>
+                        <td>{{i.LName}}</td>
+                        <td>{{i.Gender}}</td>
+                        <td>{{i.BirthYear}}</td>
+                        <td>{{i.Weight}}</td>
+                        <td>{{i.CreditNumber}}</td>
+                        <td>{{i.Address}}</td>
+                        <td>{{i.Phon}}</td>
+                        <td>{{i.SocialStatus}}</td>
+                        <td>{{i.MedicalHistory}}</td>
+                        <td class="btn btn-danger"><a class="text-dark ml-4 mr-4" href="{% url 'removepatient' i.id %}">Delete</a></td>
+                        <td><a class="bbb" href="{% url 'updatepatient' i.id %}">Update</a></td>
+                    </tr>
+                </tbody>
+                    {% endfor %}
+                    
+              </table>
+          </div>
+      </div>
+  </form>
+</div>
+
+{% endblock content %}

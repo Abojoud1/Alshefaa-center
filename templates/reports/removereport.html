@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="content-wrapper">
+  <h1 class="row m-5">Delete report</h1>
+  <form  method="POST" enctype="multipart/form-data">
+      {%csrf_token%}
+      <div class="row m-3">
+        <p class="p-3">Do you want to delete the report?</p>
+      </div>
+      <div class="card-footer m-3">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'reportss'%}" type="button" class="btn btn-primary">Cancel</a>
+      </div>
+      </div>
+  </form>
+</div>
+
+{% endblock content %}

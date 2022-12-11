@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="content-wrapper">
+        <form action="{% url 'viewallreportsbydays' %}" method="GET">
+                    <br>
+                    <div>
+                        <input type="search" name="search_date">
+                        <button class="btn btn-success" type="submit">
+                            Search
+                        </button>
+                    </div>
+            <div class="contener py-3">
+                <div class="row">
+                  <table id="example" class="table table-striped " style="width:100%">
+                    <thead>
+                      <tr class="bg-secondary">
+                        <th>ID</th>
+                        <th>date</th>
+                        <th>MatName</th>
+                        <th>injection_method</th>
+                        <th>injection_quantity</th>
+                        <th>KV</th>
+                        <th>MAS</th>
+                        <th>ImagePathstring</th>
+                        <th>price</th>
+                        <th>category</th>
+                        <th>item</th>
+                        <th>patient</th>
+                        <th>doctor</th>
+                        <th>patient_preparation</th>
+                        <th>state</th>
+                      </tr>
+                    </thead>
+                         {% for i in rep %}
+                    <tbody class="table table-bordered">
+                      <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.date}}</td>
+                        <td>{{i.MatName}}</td>
+                        <td>{{i.injection_method}}</td>
+                        <td>{{i.injection_quantity}}</td>
+                        <td>{{i.KV}}</td>
+                        <td>{{i.MAS}}</td>
+                        <td>{{i.ImagePathstring}}</td>
+                        <td>{{i.price}}</td>
+                        <td>{{i.cat_id}}</td>
+                        <td>{{i.item_id}}</td>
+                        <td>{{i.patien_id}}</td>
+                        <td>{{i.doc_id}}</td>
+                        <td>{{i.patient_preparation}}</td>
+                        <td>{{i.state}}</td>
+                      </tr>
+                    </tbody>
+                    {% endfor %}  
+                  </table>
+                </div>
+            </div>
+        </form>
+        
+</div>
+
+
+{% endblock content %}
